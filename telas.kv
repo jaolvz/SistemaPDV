@@ -1,6 +1,6 @@
 gerenciador_Telas:
-    TelaCarregamento:
-    TelaInicial:
+    TelaVenda:
+
 
 
 
@@ -8,8 +8,156 @@ gerenciador_Telas:
     name:"tela_carregamento"
     Image:
         id: logo_carregamento
-        source:"imagens/logo_carregamento.png"
+        source:"imagens/logoMercado.png"
         pos_hint: {"center_x": .5, "center_y": .5}
         size_hint: .8,.8
         opacity:0.0
 
+<TelaInicial>
+    name:"tela_inicial"
+    Image:
+        id:foto_Fundo
+        source:"imagens/fundo.jpg"
+        allow_stretch:True
+        keep_ratio:False
+
+    MDLabel:
+        text:"CAIXA DISPONIVEL"
+        halign:'center'
+        font_size:"90sp"
+        theme_text_color: "Custom"
+        font_name:"fonts/PantonNarrow-Trial-Heavy.ttf"
+        pos_hint: { "center_y": .1}
+        text_color:0, 1, 255
+
+<TelaVenda>
+    name:"tela_venda"
+    MDTopAppBar:
+        pos_hint: {"top":1}
+        elevation: 0 #retirar sombra
+        size_hint: 1.0,0.05
+        md_bg_color: [0.5, 0.5, 0.5, 1]
+        orientation:"horizontal"
+        MDLabel:
+            text: "Menu (F1)"
+            halign: 'right'
+            width: dp(200)
+            theme_text_color: "Custom"
+            text_color: [1, 1, 1, 1]
+        MDLabel:
+            text: "Ajuda (F8)"
+            halign: 'right'
+            width: dp(200)
+            theme_text_color: "Custom"
+            text_color: [1, 1, 1, 1]
+
+        MDLabel:
+            text: "Finalizar (F9)"
+            halign: 'right'
+            size_hint_x: None
+            width: dp(200)
+            theme_text_color: "Custom"
+            text_color: [1, 1, 1, 1]
+
+    MDCard:
+        id:card_digitacao
+        pos_hint: {"center_x": .25, "center_y": .4}
+        size_hint: .45,.25
+        elevation:3
+        padding:10
+        orientation:"vertical"
+
+        FloatLayout:
+            size_hint: 1,1
+            pos_hint: {"center_x": 0.5, "top": 1}
+
+            MDTextField:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: 1,1
+                font_size:"30sp"
+                line_color_normal: "white"
+                line_color_focus: "white"
+                text_color_focus: "black"
+            MDLabel:
+                text: "CÓDIGO DO PRODUTO (F2)"
+                halign: 'left'
+                size_hint_x: None
+                width: dp(200)
+                pos_hint: {"center_x": .5, "center_y": .9}
+                size_hint: 1,1
+
+
+
+        FloatLayout:
+            size_hint: 1,1
+            pos_hint: {"center_x": 0.5, "top":.1 }
+
+            MDLabel:
+                text: "Nome produto"
+                halign: 'left'
+                pos_hint: {"right": 1, "top": 1}
+                size_hint: 1,0.5
+                font_size: "20sp"
+
+            MDLabel:
+                text: "x UN x R$XX,XX = XX,XX"
+                halign: 'left'
+                pos_hint: {"right": 1, "center_y": .1}
+                size_hint: 1,0.5
+    MDCard:
+        id:card_subTotal
+        pos_hint: {"center_x": .360, "center_y": .15}
+        size_hint: .225,.15
+        elevation:3
+        padding:10
+        MDLabel:
+            text: "SUBTOTAL"
+            pos_hint: { "center_y": .9}
+            halign: 'left'
+            size_hint_x: None
+            width: dp(80)
+        MDLabel:
+            text: "0,00"
+            pos_hint: { "center_y": .3}
+            halign: 'right'
+            size_hint_x: None
+            width: dp(200)
+            font_size:"50sp"
+    MDCard:
+        id:card_items
+        pos_hint: {"center_x": .125, "center_y": .15}
+        size_hint: .2,.15
+        padding:10
+        elevation:3
+        MDLabel:
+            text: "QTDS. ITENS"
+            pos_hint: { "center_y": .9}
+            halign: 'left'
+            size_hint_x: None
+            width: dp(100)
+        MDLabel:
+            text: "0"
+            pos_hint: { "center_y": .3}
+            halign: 'right'
+            size_hint_x: None
+            width: dp(100)
+            font_size:"50sp"
+
+    MDCard:
+        id:card_listaItens
+        size_hint:.3,.65
+        pos_hint: {"center_x": .75, "center_y": .59}
+        elevation:3
+        MDScrollView:
+            MDList:
+                id:container
+
+    Image:
+        source:"imagens/logoMercado.png"
+        pos_hint: {"center_x": .25, "center_y": .75}
+        size_hint: .35,.35
+
+    Image:
+        source:"imagens/logo_carregamento.png"
+        pos_hint: {"center_x": .75, "center_y": .125}
+        size_hint: .5,.5
