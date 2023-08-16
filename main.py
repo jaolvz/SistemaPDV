@@ -15,7 +15,7 @@ class TelaInicial(Screen):
     def on_enter(self):
         Window.bind(on_keyboard=self.tecla_pressionada)
     def tecla_pressionada(self,*args):
-        self.manager.current = "tela_venda"
+        self.manager.current = "tela_vendsa"
 
 class TelaCarregamento(Screen):
     def on_enter(self):
